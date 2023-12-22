@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<body>
+    <h1>あなたの気分を教えてください！</h1>
+    <div class="kibunform">
+        <form action="/kibun2" method="POST">
+
+            <div class="contents2">
+                <div class='all'>
+                    <h4>気分に合わせてチェックしてください！</h4>
+                    <h4>冊数</h4>
+                    <label><input type="checkbox" name="fav" value="1~5巻">1~5巻</label>
+                    <label><input type="checkbox" name="fav" value="6~10巻">6~10巻</label>
+                    <label><input type="checkbox" name="fav" value="11~30巻">11~30巻</label>
+                    <label><input type="checkbox" name="fav" value="31~50巻">31~50巻</label>
+                    <label><input type="checkbox" name="fav" value="51~75巻">51~75巻</label>
+                    <label><input type="checkbox" name="fav" value="76~100巻">76~100巻</label>
+                    <label><input type="checkbox" name="fav" value="100巻以上">100巻以上</label>
+                    <h4>ジャンル</h4>
+                    <label><input type="checkbox" name="fav" value="バトル">バトル</label>
+                    <label><input type="checkbox" name="fav" value="アクション">アクション</label>
+                    <label><input type="checkbox" name="fav" value="SF">SF</label>
+                    <label><input type="checkbox" name="fav" value="ファンタジー">ファンタジー</label>
+                    <label><input type="checkbox" name="fav" value="ミステリー">ミステリー</label>
+                    <label><input type="checkbox" name="fav" value="サスペンス">サスペンス</label>
+                    <label><input type="checkbox" name="fav" value="ヒューマンドラマ">ヒューマンドラマ</label>
+                    <label><input type="checkbox" name="fav" value="学園">学園</label>
+                    <label><input type="checkbox" name="fav" value="恋愛">恋愛</label>
+                    <label><input type="checkbox" name="fav" value="ラブコメ">ラブコメ</label>
+                    <label><input type="checkbox" name="fav" value="スポーツ">スポーツ</label>
+                    <label><input type="checkbox" name="fav" value="政治">政治</label>
+                    <label><input type="checkbox" name="fav" value="ビジネス">ビジネス</label>
+                    <label><input type="checkbox" name="fav" value="ギャグ">ギャグ</label>
+                    <label><input type="checkbox" name="fav" value="コメディ">コメディ</label>
+                    <label><input type="checkbox" name="fav" value="アングラ">アングラ</label>
+                    <label><input type="checkbox" name="fav" value="歴史">歴史</label>
+                    <label><input type="checkbox" name="fav" value="グルメ">グルメ</label>
+                    <label><input type="checkbox" name="fav" value="ホラー">ホラー</label>
+                    <h4>テーマ</h4>
+                    <label><input type="checkbox" name="fav" value="少年マンガ">少年マンガ</label>
+                    <label><input type="checkbox" name="fav" value="少女マンガ">少女マンガ</label>
+                    <label><input type="checkbox" name="fav" value="青年マンガ">青年マンガ</label>
+                    <label><input type="checkbox" name="fav" value="女性マンガ">女性マンガ</label>
+                    <h4>その他</h4>
+                    <label><input type="checkbox" name="fav" value="アニメ化">アニメ化</label>
+                    <label><input type="checkbox" name="fav" value="実写化">実写化</label>
+                    <label><input type="checkbox" name="fav" value="受賞作">受賞作</label>
+                    <label><input type="checkbox" name="fav" value="最新">最新</label>
+                    <label><input type="checkbox" name="fav" value="ロングセラー">ロングセラー</label>
+                    <label><input type="checkbox" name="fav" value="完結">完結</label>
+                    <!--nameタグを必ず"fav"にしてください！app.pyの方でname属性がfavのやつ拾ってます！-->
+                    <button type="submit" class="btn">診断内容を送信！</button>
+                </div>
+            </div>
+            <div class="loading">
+                <img src="../static/images/本からスマホ.gif" style="margin: 0px; vertical-align: top; width: 30% ;height: 300px">
+            </div>
+            <script>
+                $(function() {
+                    $('.btn').on('click', function() {
+                        $('.all').hide();
+                        $('.loading').show();
+                    });
+                });
+            </script>
+        </form>
+    </div>
+    
+</body>
+{% endblock %}
