@@ -2,13 +2,13 @@
 {% block content %}
 
 <body>
-    <h1>あなたの気分を教えてください！</h1>
+    <h2>気分診断フォーム</h2>
     <div class="kibunform">
         <form action="/kibun2" method="POST">
 
-            <div class="contents2">
+            <div class="contents">
                 <div class='all'>
-                    <h4>気分に合わせてチェックしてください！</h4>
+                    <h4>気分に合わせてチェックしてください</h4>
                     <h4>冊数</h4>
                     <label><input type="checkbox" name="fav" value="1~5巻">1~5巻</label>
                     <label><input type="checkbox" name="fav" value="6~10巻">6~10巻</label>
@@ -50,11 +50,18 @@
                     <label><input type="checkbox" name="fav" value="ロングセラー">ロングセラー</label>
                     <label><input type="checkbox" name="fav" value="完結">完結</label>
                     <!--nameタグを必ず"fav"にしてください！app.pyの方でname属性がfavのやつ拾ってます！-->
-                    <button type="submit" class="btn">診断内容を送信！</button>
+                    <br>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn">診断内容を送信！</button>
+                    </div>
                 </div>
-            </div>
-            <div class="loading">
-                <img src="../static/images/本からスマホ.gif" style="margin: 0px; vertical-align: top; width: 30% ;height: 300px">
+                <div style="background-color: #f0f0f0;">
+                    <div style="text-align: center;">
+                        <div class="loading">
+                            <img src="../static/images/本からスマホ.gif" style="margin: 0px; vertical-align: top; width: 30% ;"> <!--height: 300px-->
+                        </div>
+                    </div>
+                </div>
             </div>
             <script>
                 $(function() {
@@ -66,6 +73,6 @@
             </script>
         </form>
     </div>
-    
+
 </body>
 {% endblock %}
