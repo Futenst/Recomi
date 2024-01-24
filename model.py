@@ -67,20 +67,30 @@ def recommend(query):
         data = pd.read_csv(csv_file_path)
 
         # 指定した列のデータをリストに追加
-        sentences = np.array(data['info'].tolist())
+        #sentences = np.array(data['info'].tolist())
+        sentences = data[target_column_name].tolist()
 
         # 標準入力で、理想のビールのイメージを文章で受け取る
-        sentences = np.append(sentences,query)
+        #sentences = np.append(sentences,query)
+        sentences.append(query)
+        query_embedding_vector = model.encode([query],batch_size=8)
 
         # カクテルの説明文、受け取った文章をエンコード（ベクトル表現に変換）
-        sentence_embeddings = model.encode(sentences, batch_size=32)
-        sentence_embeddings_np = sentence_embeddings.numpy()
+        #sentence_embeddings = model.encode(sentences, batch_size=32)
+        #sentence_embeddings_np = sentence_embeddings.numpy()
+
+        #sentence_embeddings = model.encode(sentences, batch_size=8)
+        #print(sentence_embeddings.shape)
+        #torch.save(sentence_embeddings,"sentence_embeddings.pt")
+
+        sentence_embeddings = torch.vstack((sentence_embeddings, query_embedding_vector))
+        print(sentence_embeddings.shape)
 
         # 類似度上位1つを出力
         closest_n = 1 #5にすると上位一位のタイトルが繰り返されてしまう。
 
         distances = scipy.spatial.distance.cdist(
-            [sentence_embeddings_np[-1]], sentence_embeddings_np, metric="cosine"
+            [sentence_embeddings[-1]], sentence_embeddings, metric="cosine"
         )[0]
 
         results = zip(range(len(distances)), distances)

@@ -2,17 +2,21 @@
 {% block content %}
 <body>
     <div class="contents">
-            <div style="background-color: #f0f0f0;">
-                <div style="text-align: center;">
-                    <img src= "{{ imageurl }}" style="margin: 0px; vertical-align: top; width: 30%;">
-                </div>
-            </div>
-        <h2>オススメの漫画は"{{name}}"です!</h2><!--{{変数名}}でPython側の変数をHTMLで表示-->
+        <div style="text-align: center;">
+            <img src= "{{ imageurl }}" style="margin: 0px; vertical-align: top; width: 20%;">
+            <h2>オススメの漫画は"{{name}}"です!</h2><!--{{変数名}}でPython側の変数をHTMLで表示-->
         <h2>{{volumes}}</h2>
         <h2>作者は{{author}}です。</h2>
         <a href="{{url}}" style="font-size: 20px;">この漫画の詳細を見る</a>
         <br>
         <a href="/">TOPへ戻る</a>
+        </div>
+        <!--h2>オススメの漫画は"{{name}}"です!</h2><{{変数名}}でPython側の変数をHTMLで表示>
+        <h2>{{volumes}}</h2>
+        <h2>作者は{{author}}です。</h2>
+        <a href="{{url}}" style="font-size: 20px;">この漫画の詳細を見る</a>
+        <br>
+        <a href="/">TOPへ戻る</a-->
     </div>
 </body>
 {% endblock %}
