@@ -66,6 +66,8 @@ def recommend(query):
         # CSVファイルをDataFrameとして読み込む
         data = pd.read_csv(csv_file_path)
 
+        print(data)
+        
         # 指定した列のデータをリストに追加
         #sentences = np.array(data['info'].tolist())
         sentences = data[target_column_name].tolist()
